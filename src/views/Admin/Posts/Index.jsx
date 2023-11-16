@@ -1,36 +1,36 @@
 //import useState and useEffect
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import Link from react router dom
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import permissions
-import hasAnyPermission from "../../../utils/Permissions";
+import hasAnyPermission from '../../../utils/Permissions';
 
 //import pagination component
-import Pagination from "../../../components/general/Pagination";
+import Pagination from '../../../components/general/Pagination';
 
 //import react-confirm-alert
-import { confirmAlert } from "react-confirm-alert";
+import { confirmAlert } from 'react-confirm-alert';
 
 //import CSS react-confirm-alert
-import "react-confirm-alert/src/react-confirm-alert.css";
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 export default function PostsIndex() {
   //title page
-  document.title = "Posts - Desa Digital";
+  document.title = 'Posts - Desa Digital';
 
   //define state "posts"
   const [posts, setPosts] = useState([]);
@@ -43,13 +43,13 @@ export default function PostsIndex() {
   });
 
   //define state "keywords"
-  const [keywords, setKeywords] = useState("");
+  const [keywords, setKeywords] = useState('');
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function fetchData
-  const fetchData = async (pageNumber = 1, keywords = "") => {
+  const fetchData = async (pageNumber = 1, keywords = '') => {
     //define variable "page"
     const page = pageNumber ? pageNumber : pagination.currentPage;
 
@@ -91,11 +91,11 @@ export default function PostsIndex() {
   const deletePost = (id) => {
     //show confirm alert
     confirmAlert({
-      title: "Are You Sure ?",
-      message: "want to delete this data ?",
+      title: 'Are You Sure ?',
+      message: 'want to delete this data ?',
       buttons: [
         {
-          label: "YES",
+          label: 'YES',
           onClick: async () => {
             await Api.delete(`/api/admin/posts/${id}`, {
               //header
@@ -106,7 +106,7 @@ export default function PostsIndex() {
             }).then((response) => {
               //show toast
               toast.success(response.data.message, {
-                position: "top-right",
+                position: 'top-right',
                 duration: 4000,
               });
 
@@ -116,7 +116,7 @@ export default function PostsIndex() {
           },
         },
         {
-          label: "NO",
+          label: 'NO',
           onClick: () => {},
         },
       ],
@@ -130,7 +130,7 @@ export default function PostsIndex() {
           <div className="row">
             <div className="col-md-8">
               <div className="row">
-                {hasAnyPermission(["posts.create"]) && (
+                {hasAnyPermission(['posts.create']) && (
                   <div className="col-md-3 col-12 mb-2">
                     <Link
                       to="/admin/posts/create"
@@ -160,22 +160,25 @@ export default function PostsIndex() {
           <div className="row mt-1">
             <div className="col-md-12">
               <div className="card border-0 rounded shadow-sm border-top-success">
+                <div class="card-header">
+                  <h5>Berita</h5>
+                </div>
                 <div className="card-body">
                   <div className="table-responsive">
                     <table className="table table-bordered table-centered mb-0 rounded">
                       <thead className="thead-dark">
                         <tr className="border-0">
-                          <th className="border-0" style={{ width: "5%" }}>
+                          <th className="border-0" style={{ width: '5%' }}>
                             No.
                           </th>
                           <th className="border-0">Title</th>
-                          <th className="border-0" style={{ width: "20%" }}>
+                          <th className="border-0" style={{ width: '20%' }}>
                             Category
                           </th>
-                          <th className="border-0" style={{ width: "15%" }}>
+                          <th className="border-0" style={{ width: '15%' }}>
                             User
                           </th>
-                          <th className="border-0" style={{ width: "15%" }}>
+                          <th className="border-0" style={{ width: '15%' }}>
                             Actions
                           </th>
                         </tr>
@@ -196,7 +199,7 @@ export default function PostsIndex() {
                                 <td>{post.category.name}</td>
                                 <td>{post.user.name}</td>
                                 <td className="text-center">
-                                  {hasAnyPermission(["posts.edit"]) && (
+                                  {hasAnyPermission(['posts.edit']) && (
                                     <Link
                                       to={`/admin/posts/edit/${post.id}`}
                                       className="btn btn-primary btn-sm me-2"
@@ -205,7 +208,7 @@ export default function PostsIndex() {
                                     </Link>
                                   )}
 
-                                  {hasAnyPermission(["posts.delete"]) && (
+                                  {hasAnyPermission(['posts.delete']) && (
                                     <button
                                       onClick={() => deletePost(post.id)}
                                       className="btn btn-danger btn-sm"

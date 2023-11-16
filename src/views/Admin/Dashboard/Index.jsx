@@ -1,35 +1,37 @@
 //import hook
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import service api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import Link
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
   //title page
-  document.title = "Dashboard - Desa Digital";
+  document.title = 'Dashboard - Desa Digital';
 
   //init state
   const [countCategories, setCountCategories] = useState(0);
   const [countPosts, setCountPosts] = useState(0);
   const [countProducts, setCountProducts] = useState(0);
   const [countAparaturs, setCountAparaturs] = useState(0);
+  const [countSholawats, setCountSholawats] = useState(0);
+  const [countKerontangs, setCountKerontangs] = useState(0);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //hook useEffect
   useEffect(() => {
     //fetch api
-    Api.get("/api/admin/dashboard", {
+    Api.get('/api/admin/dashboard', {
       //header
       headers: {
         //header Bearer + Token
@@ -41,6 +43,8 @@ export default function Dashboard() {
       setCountPosts(response.data.data.posts);
       setCountProducts(response.data.data.products);
       setCountAparaturs(response.data.data.aparaturs);
+      setCountSholawats(response.data.data.sholawats);
+      setCountKerontangs(response.data.data.kerontangs);
     });
   }, []);
 
@@ -85,7 +89,7 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
-            <div class="col-xl-3 col-md-6">
+            {/* <div class="col-xl-3 col-md-6">
               <div class="card bg-success text-white mb-4 border-0 shadow-sm">
                 <div class="card-body">
                   <strong>{countProducts}</strong> PRODUCTS
@@ -102,8 +106,26 @@ export default function Dashboard() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div class="col-xl-3 col-md-6">
+              <div class="card bg-success text-white mb-4 border-0 shadow-sm">
+                <div class="card-body">
+                  <strong>{countSholawats}</strong> SHOLAWAT
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                  <Link
+                    class="small text-white stretched-link"
+                    to="/admin/sholawats"
+                  >
+                    View Details
+                  </Link>
+                  <div class="small text-white">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <div class="col-xl-3 col-md-6">
               <div class="card bg-danger text-white mb-4 border-0 shadow-sm">
                 <div class="card-body">
                   <strong>{countAparaturs}</strong> APARATURS
@@ -112,6 +134,24 @@ export default function Dashboard() {
                   <Link
                     class="small text-white stretched-link"
                     to="/admin/aparaturs"
+                  >
+                    View Details
+                  </Link>
+                  <div class="small text-white">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div> */}
+            <div class="col-xl-3 col-md-6">
+              <div class="card bg-danger text-white mb-4 border-0 shadow-sm">
+                <div class="card-body">
+                  <strong>{countKerontangs}</strong> KERONTANG
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                  <Link
+                    class="small text-white stretched-link"
+                    to="/admin/kerontangs"
                   >
                     View Details
                   </Link>

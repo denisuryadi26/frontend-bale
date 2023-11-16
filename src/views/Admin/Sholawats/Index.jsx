@@ -160,6 +160,9 @@ export default function PostsIndex() {
           <div className="row mt-1">
             <div className="col-md-12">
               <div className="card border-0 rounded shadow-sm border-top-success">
+                <div class="card-header">
+                  <h5>Sholawat</h5>
+                </div>
                 <div className="card-body">
                   <div className="table-responsive">
                     <table className="table table-bordered table-centered mb-0 rounded">

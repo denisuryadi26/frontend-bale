@@ -41,6 +41,8 @@ export default function sidebar() {
 
           {(hasAnyPermission(['categories.index']) ||
             hasAnyPermission(['posts.index']) ||
+            hasAnyPermission(['sholawats.index']) ||
+            hasAnyPermission(['kerontangs.index']) ||
             hasAnyPermission(['pages.index']) ||
             hasAnyPermission(['products.index'])) && (
             <>
@@ -51,6 +53,10 @@ export default function sidebar() {
                   (activeRoute[2] === 'categories'
                     ? ' active-sidebar'
                     : activeRoute[2] === 'posts'
+                    ? ' active-sidebar'
+                    : activeRoute[2] === 'sholawats'
+                    ? ' active-sidebar'
+                    : activeRoute[2] === 'kerontangs'
                     ? ' active-sidebar'
                     : activeRoute[2] === 'pages'
                     ? ' active-sidebar'
@@ -84,6 +90,10 @@ export default function sidebar() {
               (activeRoute[2] === 'categories'
                 ? ' show'
                 : activeRoute[2] === 'posts'
+                ? ' show'
+                : activeRoute[2] === 'sholawats'
+                ? ' show'
+                : activeRoute[2] === 'kerontangs'
                 ? ' show'
                 : activeRoute[2] === 'pages'
                 ? ' show'

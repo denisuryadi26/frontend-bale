@@ -24,7 +24,7 @@ import 'react-quill/dist/quill.snow.css';
 
 export default function PostsCreate() {
   //title page
-  document.title = 'Create Sholawat - Desa Digital';
+  document.title = 'Create Kerontang - Desa Digital';
 
   //navigata
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ export default function PostsCreate() {
     formData.append('content', content);
 
     //sending data
-    await Api.post('/api/admin/posts', formData, {
+    await Api.post('/api/admin/kerontangs', formData, {
       //header
       headers: {
         //header Bearer + Token
@@ -91,7 +91,7 @@ export default function PostsCreate() {
         });
 
         //redirect
-        navigate('/admin/posts');
+        navigate('/admin/kerontangs');
       })
       .catch((error) => {
         //set error message to state "errors"
@@ -106,7 +106,7 @@ export default function PostsCreate() {
           <div className="row">
             <div className="col-md-12">
               <Link
-                to="/admin/posts"
+                to="/admin/kerontangs"
                 className="btn btn-md btn-primary border-0 shadow-sm mb-3"
                 type="button"
               >
@@ -119,7 +119,7 @@ export default function PostsCreate() {
                   </h6>
                   <hr />
                   <form onSubmit={storePost}>
-                    <div className="mb-3">
+                    {/* <div className="mb-3">
                       <label className="form-label fw-bold">Image</label>
                       <input
                         type="file"
@@ -132,7 +132,7 @@ export default function PostsCreate() {
                       <div className="alert alert-danger">
                         {errors.image[0]}
                       </div>
-                    )}
+                    )} */}
                     <div className="mb-3">
                       <label className="form-label fw-bold">Title</label>
                       <input
