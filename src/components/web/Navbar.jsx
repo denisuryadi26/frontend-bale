@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   //assigning location variable
@@ -10,7 +10,7 @@ export default function Navbar() {
   const { pathname } = location;
 
   //Javascript split method to get the name of the path in array
-  const activeRoute = pathname.split("/");
+  const activeRoute = pathname.split('/');
 
   return (
     <>
@@ -19,10 +19,10 @@ export default function Navbar() {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
               <li className="nav-item me-4">
-                <i className="fa fa-envelope"></i> info@desa-santri.com
+                <i className="fa fa-envelope"></i> bale@gmail.com
               </li>
               <li className="nav-item me-4">
-                <i className="fa fa-phone"></i> +62 857-8585-2224
+                <i className="fa fa-phone"></i> +62 855-160-7171
               </li>
             </ul>
             <div>
@@ -55,10 +55,11 @@ export default function Navbar() {
                 </a>
               </div>
               <div className="header-text">
-                <h2 className="header-school">DESA SANTRI</h2>
+                <h2 className="header-school">Bale Website</h2>
                 <hr />
                 <div className="header-address">
-                  Jln. Diponegoro No. 58, Wonosalam, Jombang, Jawa Timur, 61473
+                  Jl. Swadaya, Bojonggede, Kecamatan Bojonggede, Kabupaten
+                  Bogor, Jawa Barat 16922
                 </div>
               </div>
             </div>
@@ -74,10 +75,11 @@ export default function Navbar() {
                 </a>
               </div>
               <div className="col-md-12 text-center text-white mb-3">
-                <h2 className="header-school">DESA SANTRI</h2>
+                <h2 className="header-school">Bale Website</h2>
                 <hr />
                 <div className="header-address">
-                  Jln. Diponegoro No. 58, Wonosalam, Jombang, Jawa Timur, 61473
+                  Jl. Swadaya, Bojonggede, Kecamatan Bojonggede, Kabupaten
+                  Bogor, Jawa Barat 16922
                 </div>
               </div>
             </div>
@@ -85,13 +87,9 @@ export default function Navbar() {
             <div className="col-md-3">
               <div
                 className="d-none d-md-block d-lg-block"
-                style={{ marginTop: "60px" }}
+                style={{ marginTop: '60px' }}
               ></div>
-              <form
-                className="d-flex"
-                action="#"
-                method="GET"
-              >
+              <form className="d-flex" action="#" method="GET">
                 <input
                   className="form-control border-0 me-2"
                   type="search"
@@ -99,7 +97,15 @@ export default function Navbar() {
                   placeholder="cari sesuatu..."
                   aria-label="Search"
                 />
-                <button className="btn btn-primary-dark" type="submit" style={{ backgroundColor: '#005005',borderColor: '#005005',color: 'white' }}>
+                <button
+                  className="btn btn-primary-dark"
+                  type="submit"
+                  style={{
+                    backgroundColor: '#005005',
+                    borderColor: '#005005',
+                    color: 'white',
+                  }}
+                >
                   CARI
                 </button>
               </form>
@@ -125,9 +131,9 @@ export default function Navbar() {
               <li className="nav-item ms-2">
                 <Link
                   className={
-                    activeRoute[1] === ""
-                      ? "nav-link active text-uppercase"
-                      : "nav-link text-uppercase"
+                    activeRoute[1] === ''
+                      ? 'nav-link active text-uppercase'
+                      : 'nav-link text-uppercase'
                   }
                   to="/"
                 >
@@ -138,35 +144,35 @@ export default function Navbar() {
               <li className="nav-item ms-2">
                 <Link
                   className={
-                    activeRoute[1] === "pages"
-                      ? "nav-link active text-uppercase"
-                      : "nav-link text-uppercase"
+                    activeRoute[1] === 'pages'
+                      ? 'nav-link active text-uppercase'
+                      : 'nav-link text-uppercase'
                   }
                   to="/pages"
                 >
-                  <i className="fa fa-info-circle"></i> TENTANG DESA
+                  <i className="fa fa-info-circle"></i> TENTANG BALE
                 </Link>
               </li>
 
-              <li className="nav-item ms-2">
+              {/* <li className="nav-item ms-2">
                 <Link
                   className={
-                    activeRoute[1] === "aparaturs"
-                      ? "nav-link active text-uppercase"
-                      : "nav-link text-uppercase"
+                    activeRoute[1] === 'aparaturs'
+                      ? 'nav-link active text-uppercase'
+                      : 'nav-link text-uppercase'
                   }
                   to="/aparaturs"
                 >
                   <i className="fa fa-user-circle"></i> APARATURS
                 </Link>
-              </li>
+              </li> */}
 
               <li className="nav-item ms-2">
                 <Link
                   className={
-                    activeRoute[1] === "posts"
-                      ? "nav-link active text-uppercase"
-                      : "nav-link text-uppercase"
+                    activeRoute[1] === 'posts'
+                      ? 'nav-link active text-uppercase'
+                      : 'nav-link text-uppercase'
                   }
                   to="/posts"
                 >
@@ -177,22 +183,48 @@ export default function Navbar() {
               <li className="nav-item ms-2">
                 <Link
                   className={
-                    activeRoute[1] === "products"
-                      ? "nav-link active text-uppercase"
-                      : "nav-link text-uppercase"
+                    activeRoute[1] === 'sholawats'
+                      ? 'nav-link active text-uppercase'
+                      : 'nav-link text-uppercase'
                   }
-                  to="/products"
+                  to="/sholawats"
                 >
-                  <i className="fa fa-shopping-bag"></i> PRODUK DESA
+                  <i className="fa fa-book"></i> SHOLAWAT
                 </Link>
               </li>
 
               <li className="nav-item ms-2">
                 <Link
                   className={
-                    activeRoute[1] === "photos"
-                      ? "nav-link active text-uppercase"
-                      : "nav-link text-uppercase"
+                    activeRoute[1] === 'kerontangs'
+                      ? 'nav-link active text-uppercase'
+                      : 'nav-link text-uppercase'
+                  }
+                  to="/kerontangs"
+                >
+                  <i className="fa fa-book"></i> KERONTANG
+                </Link>
+              </li>
+
+              <li className="nav-item ms-2">
+                <Link
+                  className={
+                    activeRoute[1] === 'products'
+                      ? 'nav-link active text-uppercase'
+                      : 'nav-link text-uppercase'
+                  }
+                  to="/products"
+                >
+                  <i className="fa fa-shopping-bag"></i> PRODUK BALE
+                </Link>
+              </li>
+
+              <li className="nav-item ms-2">
+                <Link
+                  className={
+                    activeRoute[1] === 'photos'
+                      ? 'nav-link active text-uppercase'
+                      : 'nav-link text-uppercase'
                   }
                   to="/photos"
                 >

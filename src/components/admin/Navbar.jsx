@@ -71,7 +71,7 @@ export default function navbar() {
       style={{ paddingLeft: 0, height: '56px', zIndex: '1039' }}
     >
       <a className="navbar-brand ps-3 fw-bold" href="index.html">
-        DESA DIGITAL
+        BALE DIGITAL
       </a>
       <button
         className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"

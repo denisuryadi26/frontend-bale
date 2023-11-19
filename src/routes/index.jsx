@@ -132,6 +132,18 @@ import WebPostsIndex from '../views/Web/Posts/Index';
 //import view post show
 import WebPostsShow from '../views/Web/Posts/Show';
 
+//import view posts index
+import WebSholawatsIndex from '../views/Web/Sholawats/Index';
+
+//import view post show
+import WebSholawatsShow from '../views/Web/Sholawats/Show';
+
+//import view posts index
+import WebKerontangsIndex from '../views/Web/Kerontangs/Index';
+
+//import view post show
+import WebKerontangsShow from '../views/Web/Kerontangs/Show';
+
 //import view products index
 import WebProductsIndex from '../views/Web/Products/Index';
 
@@ -477,6 +489,18 @@ export default function RoutesIndex() {
 
       {/* route "/posts/:slug" */}
       <Route path="/posts/:slug" element={<WebPostsShow />} />
+
+      {/* route "/sholawats" */}
+      <Route path="/sholawats" element={<WebSholawatsIndex />} />
+
+      {/* route "/posts/:slug" */}
+      <Route path="/sholawats/:slug" element={<WebSholawatsShow />} />
+
+      {/* route "/kerontangs" */}
+      <Route path="/kerontangs" element={<WebKerontangsIndex />} />
+
+      {/* route "/posts/:slug" */}
+      <Route path="/kerontangs/:slug" element={<WebKerontangsShow />} />
 
       {/* route "/products" */}
       <Route path="/products" element={<WebProductsIndex />} />

@@ -13,12 +13,12 @@ import AlertDataEmpty from '../../../components/general/AlertDataEmpty';
 import Loading from '../../../components/general/Loading';
 
 //import component card post
-import CardPost from '../../../components/general/CardPost';
+import CardSholawat from '../../../components/general/CardSholawat';
 
 //import pagination component
 import Pagination from '../../../components/general/Pagination';
 
-export default function WebPostsIndex() {
+export default function WebSholawatsIndex() {
   //title page
   document.title = 'Berita - Desa Santri';
 
@@ -41,7 +41,7 @@ export default function WebPostsIndex() {
     //define variable "page"
     const page = pageNumber ? pageNumber : pagination.currentPage;
 
-    await Api.get(`/api/public/posts?page=${page}`).then((response) => {
+    await Api.get(`/api/public/sholawats?page=${page}`).then((response) => {
       //assign response to state "posts"
       setPosts(response.data.data.data);
 
@@ -69,7 +69,7 @@ export default function WebPostsIndex() {
         <div classname="row">
           <div className="col-md-12">
             <h5 className="text-uppercase">
-              <i className="fa fa-book"></i> BERITA BALE
+              <i className="fa fa-book"></i> BERITA DESA
             </h5>
             <hr />
           </div>
@@ -79,7 +79,7 @@ export default function WebPostsIndex() {
             <Loading />
           ) : posts.length > 0 ? (
             posts.map((post) => (
-              <CardPost
+              <CardSholawat
                 key={post.id}
                 image={post.image}
                 slug={post.slug}
