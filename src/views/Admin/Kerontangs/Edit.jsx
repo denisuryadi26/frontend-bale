@@ -1,30 +1,30 @@
 //import react
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import react router dom
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 //import react Quill
-import ReactQuill from "react-quill";
+import ReactQuill from 'react-quill';
 
 // quill CSS
-import "react-quill/dist/quill.snow.css";
+import 'react-quill/dist/quill.snow.css';
 
-export default function PostsEdit() {
+export default function KerontangsEdit() {
   //title page
-  document.title = "Edit Post - Desa Digital";
+  document.title = 'Edit Post - Desa Digital';
 
   //navigata
   const navigate = useNavigate();
@@ -33,20 +33,20 @@ export default function PostsEdit() {
   const { id } = useParams();
 
   //define state for form
-  const [image, setImage] = useState("");
-  const [title, setTitle] = useState("");
-  const [categoryID, setCategoryID] = useState("");
-  const [content, setContent] = useState("");
+  const [image, setImage] = useState('');
+  const [title, setTitle] = useState('');
+  const [categoryID, setCategoryID] = useState('');
+  const [content, setContent] = useState('');
   const [errors, setErros] = useState([]);
 
   const [categories, setCategories] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function "fetchDataCategories"
   const fetchDataCategories = async () => {
-    await Api.get("/api/admin/categories/all", {
+    await Api.get('/api/admin/categories/all', {
       //header
       headers: {
         //header Bearer + Token
@@ -60,7 +60,7 @@ export default function PostsEdit() {
 
   //function "fetchDataPost"
   const fetchDataPost = async () => {
-    await Api.get(`/api/admin/posts/${id}`, {
+    await Api.get(`/api/admin/kerontangs/${id}`, {
       //header
       headers: {
         //header Bearer + Token
@@ -91,30 +91,30 @@ export default function PostsEdit() {
     const formData = new FormData();
 
     //append data to "formData"
-    formData.append("image", image);
-    formData.append("title", title);
-    formData.append("category_id", categoryID);
-    formData.append("content", content);
-    formData.append("_method", "PUT");
+    formData.append('image', image);
+    formData.append('title', title);
+    formData.append('category_id', categoryID);
+    formData.append('content', content);
+    formData.append('_method', 'PUT');
 
     //sending data
-    await Api.post(`/api/admin/posts/${id}`, formData, {
+    await Api.post(`/api/admin/kerontangs/${id}`, formData, {
       //header
       headers: {
         //header Bearer + Token
         Authorization: `Bearer ${token}`,
-        "content-type": "multipart/form-data",
+        'content-type': 'multipart/form-data',
       },
     })
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/posts");
+        navigate('/admin/kerontangs');
       })
       .catch((error) => {
         //set error message to state "errors"
@@ -129,7 +129,7 @@ export default function PostsEdit() {
           <div className="row">
             <div className="col-md-12">
               <Link
-                to="/admin/posts"
+                to="/admin/kerontangs"
                 className="btn btn-md btn-primary border-0 shadow-sm mb-3"
                 type="button"
               >
@@ -142,7 +142,7 @@ export default function PostsEdit() {
                   </h6>
                   <hr />
                   <form onSubmit={updatePost}>
-                    <div className="mb-3">
+                    {/* <div className="mb-3">
                       <label className="form-label fw-bold">Image</label>
                       <input
                         type="file"
@@ -150,7 +150,7 @@ export default function PostsEdit() {
                         accept="image/*"
                         onChange={(e) => setImage(e.target.files[0])}
                       />
-                    </div>
+                    </div> */}
                     {errors.image && (
                       <div className="alert alert-danger">
                         {errors.image[0]}

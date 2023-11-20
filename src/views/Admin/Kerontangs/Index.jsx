@@ -28,12 +28,12 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 //import toast
 import toast from 'react-hot-toast';
 
-export default function PostsIndex() {
+export default function KerontangIndex() {
   //title page
-  document.title = 'Posts - Desa Digital';
+  document.title = 'Kerontangs - Bale Digital';
 
   //define state "posts"
-  const [posts, setPosts] = useState([]);
+  const [kerontangs, setPosts] = useState([]);
 
   //define state "pagination"
   const [pagination, setPagination] = useState({
@@ -186,9 +186,9 @@ export default function PostsIndex() {
                       <tbody>
                         {
                           //cek apakah data ada
-                          posts.length > 0 ? (
+                          kerontangs.length > 0 ? (
                             //looping data "categories" dengan "map"
-                            posts.map((post, index) => (
+                            kerontangs.map((post, index) => (
                               <tr key={index}>
                                 <td className="fw-bold text-center">
                                   {++index +
@@ -208,7 +208,7 @@ export default function PostsIndex() {
                                     </Link>
                                   )}
 
-                                  {hasAnyPermission(['posts.delete']) && (
+                                  {hasAnyPermission(['kerontangs.delete']) && (
                                     <button
                                       onClick={() => deletePost(post.id)}
                                       className="btn btn-danger btn-sm"

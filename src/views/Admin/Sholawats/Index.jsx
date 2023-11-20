@@ -28,12 +28,12 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 //import toast
 import toast from 'react-hot-toast';
 
-export default function PostsIndex() {
+export default function SholawatsIndex() {
   //title page
-  document.title = 'Sholawats - Desa Digital';
+  document.title = 'Sholawats - Bale Digital';
 
   //define state "posts"
-  const [posts, setPosts] = useState([]);
+  const [sholawats, setPosts] = useState([]);
 
   //define state "pagination"
   const [pagination, setPagination] = useState({
@@ -186,9 +186,9 @@ export default function PostsIndex() {
                       <tbody>
                         {
                           //cek apakah data ada
-                          posts.length > 0 ? (
+                          sholawats.length > 0 ? (
                             //looping data "categories" dengan "map"
-                            posts.map((post, index) => (
+                            sholawats.map((post, index) => (
                               <tr key={index}>
                                 <td className="fw-bold text-center">
                                   {++index +
