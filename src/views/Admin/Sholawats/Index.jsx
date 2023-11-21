@@ -30,7 +30,7 @@ import toast from 'react-hot-toast';
 
 export default function SholawatsIndex() {
   //title page
-  document.title = 'Sholawats - Bale Digital';
+  document.title = 'Sholawats - Sangkakala';
 
   //define state "posts"
   const [sholawats, setPosts] = useState([]);

@@ -38,7 +38,7 @@ export default function WebKerontangsShow() {
       setPost(response.data.data);
 
       //title page
-      document.title = `${response.data.data.title} - Kerontang Bale`;
+      document.title = `${response.data.data.title} - Kerontang Sangkakala`;
 
       //setLoadingPost "false"
       setLoadingPost(false);

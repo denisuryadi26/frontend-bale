@@ -19,7 +19,7 @@ export default function Navbar() {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
               <li className="nav-item me-4">
-                <i className="fa fa-envelope"></i> bale@gmail.com
+                <i className="fa fa-envelope"></i> sangkakala@gmail.com
               </li>
               <li className="nav-item me-4">
                 <i className="fa fa-phone"></i> +62 855-160-7171
@@ -55,7 +55,7 @@ export default function Navbar() {
                 </a>
               </div>
               <div className="header-text">
-                <h2 className="header-school">Bale Website</h2>
+                <h2 className="header-school">Sangkakala Website</h2>
                 <hr />
                 <div className="header-address">
                   Jl. Swadaya, Bojonggede, Kecamatan Bojonggede, Kabupaten
@@ -75,7 +75,7 @@ export default function Navbar() {
                 </a>
               </div>
               <div className="col-md-12 text-center text-white mb-3">
-                <h2 className="header-school">Bale Website</h2>
+                <h2 className="header-school">Sangkakala Website</h2>
                 <hr />
                 <div className="header-address">
                   Jl. Swadaya, Bojonggede, Kecamatan Bojonggede, Kabupaten
@@ -150,7 +150,7 @@ export default function Navbar() {
                   }
                   to="/pages"
                 >
-                  <i className="fa fa-info-circle"></i> TENTANG BALE
+                  <i className="fa fa-info-circle"></i> TENTANG SANGKAKALA
                 </Link>
               </li>
 
@@ -215,7 +215,7 @@ export default function Navbar() {
                   }
                   to="/products"
                 >
-                  <i className="fa fa-shopping-bag"></i> PRODUK BALE
+                  <i className="fa fa-shopping-bag"></i> PRODUK SANGKAKALA
                 </Link>
               </li>
 

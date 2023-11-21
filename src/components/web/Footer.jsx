@@ -8,14 +8,15 @@ export default function footer() {
           <div className="col-md-4 mb-4 mt-3">
             <h5>
               TENTANG
-              <strong style={{ color: '#ffd22e' }}> WEBSITE BALE</strong>
+              <strong style={{ color: '#ffd22e' }}> WEBSITE SANGKAKALA</strong>
             </h5>
             <hr />
             <div className="text-center">
               <img src="/images/logo-jbg.png" width="70" />
             </div>
             <p className="text-justify mt-3">
-              Website Bale merupakan website berisikan sholawat dan kerontang.
+              Website Sangkakala merupakan website berisikan sholawat dan
+              kerontang.
             </p>
           </div>
           <div className="col-md-4 mb-4 mt-3">
@@ -36,13 +37,13 @@ export default function footer() {
               </a>
             </div>
             <p className="text-justify mt-2 text-left">
-              Dapatkan info update Bale lebih cepat melalui aplikasi Android.
-              Silahkan unduh melalui PlayStore.
+              Dapatkan info update Sangkakala lebih cepat melalui aplikasi
+              Android. Silahkan unduh melalui PlayStore.
             </p>
           </div>
           <div className="col-md-4 mb-4 mt-3">
             <h5>
-              KONTAK <strong style={{ color: '#ffd22e' }}>BALE</strong>
+              KONTAK <strong style={{ color: '#ffd22e' }}>SANGKAKALA</strong>
             </h5>
             <hr />
             <p>
@@ -50,7 +51,7 @@ export default function footer() {
               Kecamatan Bojonggede, Kabupaten Bogor, Jawa Barat 16922
               <br />
               <br />
-              <i className="fas fa-envelope"></i> bale@gmail.com
+              <i className="fas fa-envelope"></i> sangkakala@gmail.com
               <br />
               <br />
               <i className="fas fa-phone"></i> +62 855-169-7171
@@ -61,7 +62,7 @@ export default function footer() {
       <div className="container-fluid footer-bottom">
         <div className="row p-3">
           <div className="text-center text-white font-weight-bold">
-            Copyright © 2023 BALE. All Rights Reserved.
+            Copyright © 2023 SANGKAKALA. All Rights Reserved.
           </div>
         </div>
       </div>

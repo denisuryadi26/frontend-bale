@@ -30,7 +30,7 @@ import toast from 'react-hot-toast';
 
 export default function KerontangIndex() {
   //title page
-  document.title = 'Kerontangs - Bale Digital';
+  document.title = 'Kerontangs - Sangkakala';
 
   //define state "posts"
   const [kerontangs, setPosts] = useState([]);

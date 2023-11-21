@@ -83,7 +83,7 @@ export default function Home() {
               <h4>
                 <i className="fa fa-shopping-bag"></i>
                 <strong style={{ color: 'rgb(209 104 0)' }}> PRODUK </strong>
-                BALE
+                SANGKAKAL
               </h4>
             </div>
           </div>
