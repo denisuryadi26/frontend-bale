@@ -20,7 +20,7 @@ import Pagination from '../../../components/general/Pagination';
 
 export default function WebSholawatsIndex() {
   //title page
-  document.title = 'Berita - Desa Santri';
+  document.title = 'Berita - Sangkakala';
 
   //init state
   const [posts, setPosts] = useState([]);
@@ -69,7 +69,7 @@ export default function WebSholawatsIndex() {
         <div classname="row">
           <div className="col-md-12">
             <h5 className="text-uppercase">
-              <i className="fa fa-book"></i> BERITA DESA
+              <i className="fa fa-book"></i> BERITA SANGKAKALA
             </h5>
             <hr />
           </div>

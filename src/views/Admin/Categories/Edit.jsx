@@ -1,24 +1,24 @@
 //import react
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import react router dom
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 export default function CategoryEdit() {
   //title page
-  document.title = "Edit Category - Desa Digital";
+  document.title = 'Edit Category - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
@@ -27,11 +27,11 @@ export default function CategoryEdit() {
   const { id } = useParams();
 
   //define state for form
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [errors, setErros] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function fetchDataCategory
   const fetchDataCategory = async () => {
@@ -63,26 +63,26 @@ export default function CategoryEdit() {
       {
         //data
         name: name,
-        _method: "PUT",
+        _method: 'PUT',
       },
       {
         //header
         headers: {
           //header Bearer + Token
           Authorization: `Bearer ${token}`,
-          "content-type": "multipart/form-data",
+          'content-type': 'multipart/form-data',
         },
-      }
+      },
     )
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/categories");
+        navigate('/admin/categories');
       })
       .catch((error) => {
         //set error message to state "errors"

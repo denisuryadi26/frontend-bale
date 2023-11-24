@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 //import layout web
-import LayoutWeb from "../../../layouts/Web";
+import LayoutWeb from '../../../layouts/Web';
 
 //import service api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import component alert
-import AlertDataEmpty from "../../../components/general/AlertDataEmpty";
+import AlertDataEmpty from '../../../components/general/AlertDataEmpty';
 
 //import component loading
-import Loading from "../../../components/general/Loading";
+import Loading from '../../../components/general/Loading';
 
 //import component card page
-import CardPage from "../../../components/general/CardPage";
+import CardPage from '../../../components/general/CardPage';
 
 export default function WebPagesIndex() {
   //title page
-  document.title = "Tentang Desa - Desa Santri";
+  document.title = 'Tentang Sangkakala - Sangkakala';
 
   //init state
   const [pages, setPages] = useState([]);
@@ -29,7 +29,7 @@ export default function WebPagesIndex() {
     setLoadingPages(true);
 
     //fetch data
-    await Api.get("/api/public/pages").then((response) => {
+    await Api.get('/api/public/pages').then((response) => {
       //assign response to state "pages"
       setPages(response.data.data);
 
@@ -50,7 +50,7 @@ export default function WebPagesIndex() {
         <div classname="row">
           <div className="col-md-12">
             <h5 className="text-uppercase">
-              <i className="fa fa-info-circle"></i> TENTANG DESA
+              <i className="fa fa-info-circle"></i> TENTANG SANGKAKALA
             </h5>
             <hr />
           </div>

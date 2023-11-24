@@ -1,41 +1,41 @@
 //import react
-import { useState } from "react";
+import { useState } from 'react';
 
 //import react router dom
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 //import react Quill
-import ReactQuill from "react-quill";
+import ReactQuill from 'react-quill';
 
 // quill CSS
-import "react-quill/dist/quill.snow.css";
+import 'react-quill/dist/quill.snow.css';
 
 export default function PagesCreate() {
   //title page
-  document.title = "Create Page - Desa Digital";
+  document.title = 'Create Page - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
 
   //define state for form
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
   const [errors, setErros] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function "storePage"
   const storePage = async (e) => {
@@ -43,7 +43,7 @@ export default function PagesCreate() {
 
     //sending data
     await Api.post(
-      "/api/admin/pages",
+      '/api/admin/pages',
       {
         //data
         title: title,
@@ -54,19 +54,19 @@ export default function PagesCreate() {
         headers: {
           //header Bearer + Token
           Authorization: `Bearer ${token}`,
-          "content-type": "multipart/form-data",
+          'content-type': 'multipart/form-data',
         },
-      }
+      },
     )
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/pages");
+        navigate('/admin/pages');
       })
       .catch((error) => {
         //set error message to state "errors"

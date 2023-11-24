@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 //import layout web
-import LayoutWeb from "../../../layouts/Web";
+import LayoutWeb from '../../../layouts/Web';
 
 //import service api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import useParams
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from 'react-router-dom';
 
 //import component loading
-import Loading from "../../../components/general/Loading";
+import Loading from '../../../components/general/Loading';
 
 //import date ID
-import DateID from "../../../utils/DateID";
+import DateID from '../../../utils/DateID';
 
 export default function WebPostsShow() {
   //init state detail post
@@ -38,7 +38,7 @@ export default function WebPostsShow() {
       setPost(response.data.data);
 
       //title page
-      document.title = `${response.data.data.title} - Desa Santri`;
+      document.title = `${response.data.data.title} - Sangkakala`;
 
       //setLoadingPost "false"
       setLoadingPost(false);
@@ -51,7 +51,7 @@ export default function WebPostsShow() {
     setLoadingPosts(true);
 
     //fetch data
-    await Api.get("/api/public/posts_home").then((response) => {
+    await Api.get('/api/public/posts_home').then((response) => {
       //assign response to state "posts"
       setPosts(response.data.data);
 
@@ -85,11 +85,11 @@ export default function WebPostsShow() {
                       <i className="fa fa-user"></i> {post.user.name}
                     </span>
                     <span>
-                      <i className="fa fa-folder ms-4 ml-4"></i>{" "}
+                      <i className="fa fa-folder ms-4 ml-4"></i>{' '}
                       {post.category.name}
                     </span>
                     <span>
-                      <i className="fa fa-calendar ms-4 ml-4"></i>{" "}
+                      <i className="fa fa-calendar ms-4 ml-4"></i>{' '}
                       {DateID(new Date(post.created_at))}
                     </span>
                   </div>

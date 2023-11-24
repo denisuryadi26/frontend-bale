@@ -1,15 +1,15 @@
 //import css
-import "../assets/admin/css/styles.css";
-import "../assets/admin/css/custom.css";
+import '../assets/admin/css/styles.css';
+import '../assets/admin/css/custom.css';
 
 //import js
-import "../assets/admin/js/bootstrap.bundle.min.js";
+import '../assets/admin/js/bootstrap.bundle.min.js';
 
 //import sidebar
-import Sidebar from "../components/admin/Sidebar";
+import Sidebar from '../components/admin/Sidebar';
 
 //import navbar
-import Navbar from "../components/admin/Navbar";
+import Navbar from '../components/admin/Navbar';
 
 export default function admin({ children }) {
   return (
@@ -26,7 +26,7 @@ export default function admin({ children }) {
           <footer className="py-4 bg-light mt-auto">
             <div className="container-fluid px-4">
               <div className="d-flex align-items-center justify-content-end small">
-                <div className="text-muted">Copyright &copy; Desa Digital.</div>
+                <div className="text-muted">Copyright &copy; Sangkakala.</div>
               </div>
             </div>
           </footer>

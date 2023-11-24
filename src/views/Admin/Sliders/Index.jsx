@@ -1,36 +1,36 @@
 //import useState and useEffect
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import permissions
-import hasAnyPermission from "../../../utils/Permissions";
+import hasAnyPermission from '../../../utils/Permissions';
 
 //import pagination component
-import Pagination from "../../../components/general/pagination";
+import Pagination from '../../../components/general/pagination';
 
 //import component slider create
-import SlidersCreate from "./Create";
+import SlidersCreate from './Create';
 
 //import react-confirm-alert
-import { confirmAlert } from "react-confirm-alert";
+import { confirmAlert } from 'react-confirm-alert';
 
 //import CSS react-confirm-alert
-import "react-confirm-alert/src/react-confirm-alert.css";
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 export default function SlidersIndex() {
   //title page
-  document.title = "Sliders - Desa Digital";
+  document.title = 'Sliders - Sangkakala';
 
   //define state "sliders"
   const [sliders, setSliders] = useState([]);
@@ -43,7 +43,7 @@ export default function SlidersIndex() {
   });
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function fetchData
   const fetchData = async (pageNumber = 1) => {
@@ -79,11 +79,11 @@ export default function SlidersIndex() {
   const deleteSlider = (id) => {
     //show confirm alert
     confirmAlert({
-      title: "Are You Sure ?",
-      message: "want to delete this data ?",
+      title: 'Are You Sure ?',
+      message: 'want to delete this data ?',
       buttons: [
         {
-          label: "YES",
+          label: 'YES',
           onClick: async () => {
             await Api.delete(`/api/admin/sliders/${id}`, {
               //header
@@ -94,7 +94,7 @@ export default function SlidersIndex() {
             }).then((response) => {
               //show toast
               toast.success(response.data.message, {
-                position: "top-right",
+                position: 'top-right',
                 duration: 4000,
               });
 
@@ -104,7 +104,7 @@ export default function SlidersIndex() {
           },
         },
         {
-          label: "NO",
+          label: 'NO',
           onClick: () => {},
         },
       ],
@@ -117,7 +117,7 @@ export default function SlidersIndex() {
         <div className="container-fluid mb-5 mt-5">
           <div className="row">
             <div className="col-md-12">
-              {hasAnyPermission(["sliders.create"]) && (
+              {hasAnyPermission(['sliders.create']) && (
                 <SlidersCreate fetchData={fetchData} />
               )}
             </div>
@@ -130,11 +130,11 @@ export default function SlidersIndex() {
                     <table className="table table-bordered table-centered mb-0 rounded">
                       <thead className="thead-dark">
                         <tr className="border-0">
-                          <th className="border-0" style={{ width: "5%" }}>
+                          <th className="border-0" style={{ width: '5%' }}>
                             No.
                           </th>
                           <th className="border-0">Image</th>
-                          <th className="border-0" style={{ width: "15%" }}>
+                          <th className="border-0" style={{ width: '15%' }}>
                             Actions
                           </th>
                         </tr>
@@ -154,12 +154,12 @@ export default function SlidersIndex() {
                                 <td className="text-center">
                                   <img
                                     src={slider.image}
-                                    width={"300px"}
+                                    width={'300px'}
                                     className="rounded"
                                   />
                                 </td>
                                 <td className="text-center">
-                                  {hasAnyPermission(["sliders.delete"]) && (
+                                  {hasAnyPermission(['sliders.delete']) && (
                                     <button
                                       onClick={() => deleteSlider(slider.id)}
                                       className="btn btn-danger btn-sm"

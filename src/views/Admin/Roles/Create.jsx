@@ -1,30 +1,30 @@
 //import react
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import react router dom
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 export default function RolesCreate() {
   //title page
-  document.title = "Create Role - Desa Digital";
+  document.title = 'Create Role - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
 
   //define state for form
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [permissionsData, setPermissionsData] = useState([]);
   const [errors, setErros] = useState([]);
 
@@ -32,11 +32,11 @@ export default function RolesCreate() {
   const [permissions, setPermissions] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function "fetchDataPermissions"
   const fetchDataPermissions = async () => {
-    await Api.get("/api/admin/permissions/all", {
+    await Api.get('/api/admin/permissions/all', {
       //header
       headers: {
         //header Bearer + Token
@@ -72,7 +72,7 @@ export default function RolesCreate() {
 
     //sending data
     await Api.post(
-      "/api/admin/roles",
+      '/api/admin/roles',
       {
         //data
         name: name,
@@ -84,17 +84,17 @@ export default function RolesCreate() {
           //header Bearer + Token
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     )
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/roles");
+        navigate('/admin/roles');
       })
       .catch((error) => {
         //set error message to state "errors"

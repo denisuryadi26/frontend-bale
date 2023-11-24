@@ -18,7 +18,7 @@ import toast from 'react-hot-toast';
 
 export default function login() {
   //title page
-  document.title = 'Login - Admin Desa';
+  document.title = 'Login - Admin Sangkakala';
 
   //navigate
   const navigate = useNavigate();

@@ -1,36 +1,36 @@
 //import useState and useEffect
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import Link from react router dom
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import permissions
-import hasAnyPermission from "../../../utils/Permissions";
+import hasAnyPermission from '../../../utils/Permissions';
 
 //import pagination component
-import Pagination from "../../../components/general/Pagination";
+import Pagination from '../../../components/general/Pagination';
 
 //import react-confirm-alert
-import { confirmAlert } from "react-confirm-alert";
+import { confirmAlert } from 'react-confirm-alert';
 
 //import CSS react-confirm-alert
-import "react-confirm-alert/src/react-confirm-alert.css";
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 export default function UsersIndex() {
   //title page
-  document.title = "Users - Desa Digital";
+  document.title = 'Users - Sangkakala';
 
   //define state "users"
   const [users, setUsers] = useState([]);
@@ -43,13 +43,13 @@ export default function UsersIndex() {
   });
 
   //define state "keywords"
-  const [keywords, setKeywords] = useState("");
+  const [keywords, setKeywords] = useState('');
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function fetchData
-  const fetchData = async (pageNumber = 1, keywords = "") => {
+  const fetchData = async (pageNumber = 1, keywords = '') => {
     //define variable "page"
     const page = pageNumber ? pageNumber : pagination.currentPage;
 
@@ -91,11 +91,11 @@ export default function UsersIndex() {
   const deleteUser = (id) => {
     //show confirm alert
     confirmAlert({
-      title: "Are You Sure ?",
-      message: "want to delete this data ?",
+      title: 'Are You Sure ?',
+      message: 'want to delete this data ?',
       buttons: [
         {
-          label: "YES",
+          label: 'YES',
           onClick: async () => {
             await Api.delete(`/api/admin/users/${id}`, {
               //header
@@ -106,7 +106,7 @@ export default function UsersIndex() {
             }).then((response) => {
               //show toast
               toast.success(response.data.message, {
-                position: "top-right",
+                position: 'top-right',
                 duration: 4000,
               });
 
@@ -116,7 +116,7 @@ export default function UsersIndex() {
           },
         },
         {
-          label: "NO",
+          label: 'NO',
           onClick: () => {},
         },
       ],
@@ -130,7 +130,7 @@ export default function UsersIndex() {
           <div className="row">
             <div className="col-md-8">
               <div className="row">
-                {hasAnyPermission(["users.create"]) && (
+                {hasAnyPermission(['users.create']) && (
                   <div className="col-md-3 col-12 mb-2">
                     <Link
                       to="/admin/users/create"
@@ -165,13 +165,13 @@ export default function UsersIndex() {
                     <table className="table table-bordered table-centered mb-0 rounded">
                       <thead className="thead-dark">
                         <tr className="border-0">
-                          <th className="border-0" style={{ width: "5%" }}>
+                          <th className="border-0" style={{ width: '5%' }}>
                             No.
                           </th>
                           <th className="border-0">Full Name</th>
                           <th className="border-0">Email Address</th>
                           <th className="border-0">Roles</th>
-                          <th className="border-0" style={{ width: "15%" }}>
+                          <th className="border-0" style={{ width: '15%' }}>
                             Actions
                           </th>
                         </tr>
@@ -201,7 +201,7 @@ export default function UsersIndex() {
                                   ))}
                                 </td>
                                 <td className="text-center">
-                                  {hasAnyPermission(["users.edit"]) && (
+                                  {hasAnyPermission(['users.edit']) && (
                                     <Link
                                       to={`/admin/users/edit/${user.id}`}
                                       className="btn btn-primary btn-sm me-2"
@@ -210,7 +210,7 @@ export default function UsersIndex() {
                                     </Link>
                                   )}
 
-                                  {hasAnyPermission(["users.delete"]) && (
+                                  {hasAnyPermission(['users.delete']) && (
                                     <button
                                       onClick={() => deleteUser(user.id)}
                                       className="btn btn-danger btn-sm"

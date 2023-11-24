@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 //import layout web
-import LayoutWeb from "../../../layouts/Web";
+import LayoutWeb from '../../../layouts/Web';
 
 //import service api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import component alert
-import AlertDataEmpty from "../../../components/general/AlertDataEmpty";
+import AlertDataEmpty from '../../../components/general/AlertDataEmpty';
 
 //import component loading
-import Loading from "../../../components/general/Loading";
+import Loading from '../../../components/general/Loading';
 
 //import component card aparatur
-import CardAparatur from "../../../components/general/CardAparatur";
+import CardAparatur from '../../../components/general/CardAparatur';
 
 export default function Aparaturs() {
   //title page
-  document.title = "Aparaturs - Desa Santri";
+  document.title = 'Aparaturs - Sangkakala';
 
   //init state
   const [aparaturs, setAparaturs] = useState([]);
@@ -29,7 +29,7 @@ export default function Aparaturs() {
     setLoadingAparatur(true);
 
     //fetch data
-    await Api.get("/api/public/aparaturs").then((response) => {
+    await Api.get('/api/public/aparaturs').then((response) => {
       //assign response to state "aparaturs"
       setAparaturs(response.data.data);
 
@@ -50,7 +50,7 @@ export default function Aparaturs() {
         <div classname="row">
           <div className="col-md-12">
             <h5 className="text-uppercase">
-              <i className="fa fa-user-circle"></i> Aparatur DESA
+              <i className="fa fa-user-circle"></i> Aparatur Sangkakala
             </h5>
             <hr />
           </div>

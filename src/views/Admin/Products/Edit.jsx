@@ -1,30 +1,30 @@
 //import react
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import react router dom
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 //import react Quill
-import ReactQuill from "react-quill";
+import ReactQuill from 'react-quill';
 
 // quill CSS
-import "react-quill/dist/quill.snow.css";
+import 'react-quill/dist/quill.snow.css';
 
 export default function ProductsEdit() {
   //title page
-  document.title = "Product Edit - Desa Digital";
+  document.title = 'Product Edit - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
@@ -33,17 +33,17 @@ export default function ProductsEdit() {
   const { id } = useParams();
 
   //define state for form
-  const [image, setImage] = useState("");
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [owner, setOwner] = useState("");
-  const [price, setPrice] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
+  const [image, setImage] = useState('');
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [owner, setOwner] = useState('');
+  const [price, setPrice] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
   const [errors, setErros] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function "fetchDataProduct"
   const fetchDataProduct = async () => {
@@ -78,14 +78,14 @@ export default function ProductsEdit() {
     const formData = new FormData();
 
     //append data to "formData"
-    formData.append("image", image);
-    formData.append("title", title);
-    formData.append("owner", owner);
-    formData.append("price", price);
-    formData.append("address", address);
-    formData.append("phone", phone);
-    formData.append("content", content);
-    formData.append("_method", "PUT");
+    formData.append('image', image);
+    formData.append('title', title);
+    formData.append('owner', owner);
+    formData.append('price', price);
+    formData.append('address', address);
+    formData.append('phone', phone);
+    formData.append('content', content);
+    formData.append('_method', 'PUT');
 
     //sending data
     await Api.post(`/api/admin/products/${id}}`, formData, {
@@ -93,18 +93,18 @@ export default function ProductsEdit() {
       headers: {
         //header Bearer + Token
         Authorization: `Bearer ${token}`,
-        "content-type": "multipart/form-data",
+        'content-type': 'multipart/form-data',
       },
     })
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/products");
+        navigate('/admin/products');
       })
       .catch((error) => {
         //set error message to state "errors"

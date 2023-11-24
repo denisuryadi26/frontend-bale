@@ -1,24 +1,24 @@
 //import react
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import react router dom
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 export default function RolesEdit() {
   //title page
-  document.title = "Edit Role - Desa Digital";
+  document.title = 'Edit Role - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ export default function RolesEdit() {
   const { id } = useParams();
 
   //define state for form
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [permissionsData, setPermissionsData] = useState([]);
   const [errors, setErros] = useState([]);
 
@@ -35,11 +35,11 @@ export default function RolesEdit() {
   const [permissions, setPermissions] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function "fetchDataPermissions"
   const fetchDataPermissions = async () => {
-    await Api.get("/api/admin/permissions/all", {
+    await Api.get('/api/admin/permissions/all', {
       //header
       headers: {
         //header Bearer + Token
@@ -103,7 +103,7 @@ export default function RolesEdit() {
         //data
         name: name,
         permissions: permissionsData,
-        _method: "PUT",
+        _method: 'PUT',
       },
       {
         //header
@@ -111,17 +111,17 @@ export default function RolesEdit() {
           //header Bearer + Token
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     )
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/roles");
+        navigate('/admin/roles');
       })
       .catch((error) => {
         //set error message to state "errors"
@@ -176,7 +176,7 @@ export default function RolesEdit() {
                             type="checkbox"
                             value={permission.name}
                             defaultChecked={permissionsData.some(
-                              (name) => name === permission.name ?? true
+                              (name) => name === permission.name ?? true,
                             )}
                             onChange={handleCheckboxChange}
                             id={`check-${permission.id}`}

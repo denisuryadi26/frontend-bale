@@ -1,30 +1,30 @@
 //import react
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import react router dom
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 //import react Quill
-import ReactQuill from "react-quill";
+import ReactQuill from 'react-quill';
 
 // quill CSS
-import "react-quill/dist/quill.snow.css";
+import 'react-quill/dist/quill.snow.css';
 
 export default function PageEdit() {
   //title page
-  document.title = "Edit Page - Desa Digital";
+  document.title = 'Edit Page - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
@@ -33,12 +33,12 @@ export default function PageEdit() {
   const { id } = useParams();
 
   //define state for form
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
   const [errors, setErros] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function "fetchDataPage"
   const fetchDataPage = async () => {
@@ -72,26 +72,26 @@ export default function PageEdit() {
         //data
         title: title,
         content: content,
-        _method: "PUT",
+        _method: 'PUT',
       },
       {
         //header
         headers: {
           //header Bearer + Token
           Authorization: `Bearer ${token}`,
-          "content-type": "multipart/form-data",
+          'content-type': 'multipart/form-data',
         },
-      }
+      },
     )
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/pages");
+        navigate('/admin/pages');
       })
       .catch((error) => {
         //set error message to state "errors"

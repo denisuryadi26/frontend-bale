@@ -24,7 +24,7 @@ import 'react-quill/dist/quill.snow.css';
 
 export default function PostsCreate() {
   //title page
-  document.title = 'Create Sholawat - Desa Digital';
+  document.title = 'Create Sholawat - Sangkakala';
 
   //navigata
   const navigate = useNavigate();

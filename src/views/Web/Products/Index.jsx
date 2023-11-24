@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 //import layout web
-import LayoutWeb from "../../../layouts/Web";
+import LayoutWeb from '../../../layouts/Web';
 
 //import service api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import component alert
-import AlertDataEmpty from "../../../components/general/AlertDataEmpty";
+import AlertDataEmpty from '../../../components/general/AlertDataEmpty';
 
 //import component loading
-import Loading from "../../../components/general/Loading";
+import Loading from '../../../components/general/Loading';
 
 //import component card product
-import CardProduct from "../../../components/general/CardProduct";
+import CardProduct from '../../../components/general/CardProduct';
 
 //import pagination component
-import Pagination from "../../../components/general/pagination";
+import Pagination from '../../../components/general/pagination';
 
 export default function WebProductsIndex() {
   //title page
-  document.title = "Produk Desa - Desa Santri";
+  document.title = 'Produk Sangkakala - Sangkakala';
 
   //init state
   const [products, setProducts] = useState([]);
@@ -69,7 +69,7 @@ export default function WebProductsIndex() {
         <div classname="row">
           <div className="col-md-12">
             <h5 className="text-uppercase">
-              <i className="fa fa-shopping-bag"></i> PRODUK DESA
+              <i className="fa fa-shopping-bag"></i> PRODUK SANGKAKALA
             </h5>
             <hr />
           </div>

@@ -1,24 +1,24 @@
 //import react
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import react router dom
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 export default function UsersEdit() {
   //title page
-  document.title = "Edit User - Desa Digital";
+  document.title = 'Edit User - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
@@ -27,10 +27,10 @@ export default function UsersEdit() {
   const { id } = useParams();
 
   //define state for form
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [rolesData, setRolesData] = useState([]);
   const [errors, setErros] = useState([]);
 
@@ -38,11 +38,11 @@ export default function UsersEdit() {
   const [roles, setRoles] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function "fetchDataRoles"
   const fetchDataRoles = async () => {
-    await Api.get("/api/admin/roles/all", {
+    await Api.get('/api/admin/roles/all', {
       //header
       headers: {
         //header Bearer + Token
@@ -110,7 +110,7 @@ export default function UsersEdit() {
         password: password,
         password_confirmation: passwordConfirmation,
         roles: rolesData,
-        _method: "PUT",
+        _method: 'PUT',
       },
       {
         //header
@@ -118,17 +118,17 @@ export default function UsersEdit() {
           //header Bearer + Token
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     )
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/users");
+        navigate('/admin/users');
       })
       .catch((error) => {
         //set error message to state "errors"
@@ -246,7 +246,7 @@ export default function UsersEdit() {
                             type="checkbox"
                             value={role.name}
                             defaultChecked={rolesData.some(
-                              (name) => name === role.name ?? true
+                              (name) => name === role.name ?? true,
                             )}
                             onChange={handleCheckboxChange}
                             id={`check-${role.id}`}

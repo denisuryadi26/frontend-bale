@@ -1,21 +1,21 @@
 //import useState and useEffect
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import pagination component
-import Pagination from "../../../components/general/Pagination";
+import Pagination from '../../../components/general/Pagination';
 
 export default function index() {
   //title page
-  document.title = "Permissions - Desa Digital";
+  document.title = 'Permissions - Sangkakala';
 
   //define state "permissions"
   const [permissions, setPermissions] = useState([]);
@@ -28,13 +28,13 @@ export default function index() {
   });
 
   //define state "keywords"
-  const [keywords, setKeywords] = useState("");
+  const [keywords, setKeywords] = useState('');
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function fetchData
-  const fetchData = async (pageNumber = 1, keywords = "") => {
+  const fetchData = async (pageNumber = 1, keywords = '') => {
     //define variable "page"
     const page = pageNumber ? pageNumber : pagination.currentPage;
 
@@ -103,7 +103,7 @@ export default function index() {
                     <table className="table table-bordered table-centered table-nowrap mb-0 rounded">
                       <thead className="thead-dark">
                         <tr className="border-0">
-                          <th className="border-0" style={{ width: "5%" }}>
+                          <th className="border-0" style={{ width: '5%' }}>
                             No.
                           </th>
                           <th className="border-0">Permission Name</th>

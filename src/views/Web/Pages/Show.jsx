@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 //import layout web
-import LayoutWeb from "../../../layouts/Web";
+import LayoutWeb from '../../../layouts/Web';
 
 //import service api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import useParams
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 
 //import component loading
-import Loading from "../../../components/general/Loading";
+import Loading from '../../../components/general/Loading';
 
 export default function WebPagesShow() {
   //init state
@@ -31,7 +31,7 @@ export default function WebPagesShow() {
       setPage(response.data.data);
 
       //title page
-      document.title = `${response.data.data.title} - Desa Santri`;
+      document.title = `${response.data.data.title} - Sangkakala`;
 
       //setLoadingPages "false"
       setLoadingPage(false);

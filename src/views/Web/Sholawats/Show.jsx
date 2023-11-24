@@ -38,7 +38,7 @@ export default function WebSholawatsShow() {
       setPost(response.data.data);
 
       //title page
-      document.title = `${response.data.data.title} - Desa Santri`;
+      document.title = `${response.data.data.title} - Sangkakala`;
 
       //setLoadingPost "false"
       setLoadingPost(false);

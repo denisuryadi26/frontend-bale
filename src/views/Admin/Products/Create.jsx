@@ -1,46 +1,46 @@
 //import react
-import { useState } from "react";
+import { useState } from 'react';
 
 //import react router dom
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 //import react Quill
-import ReactQuill from "react-quill";
+import ReactQuill from 'react-quill';
 
 // quill CSS
-import "react-quill/dist/quill.snow.css";
+import 'react-quill/dist/quill.snow.css';
 
 export default function ProductsCreate() {
   //title page
-  document.title = "Create Product - Desa Digital";
+  document.title = 'Create Product - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
 
   //define state for form
-  const [image, setImage] = useState("");
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [owner, setOwner] = useState("");
-  const [price, setPrice] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
+  const [image, setImage] = useState('');
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [owner, setOwner] = useState('');
+  const [price, setPrice] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
   const [errors, setErros] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function "storeProduct"
   const storeProduct = async (e) => {
@@ -50,32 +50,32 @@ export default function ProductsCreate() {
     const formData = new FormData();
 
     //append data to "formData"
-    formData.append("image", image);
-    formData.append("title", title);
-    formData.append("owner", owner);
-    formData.append("price", price);
-    formData.append("address", address);
-    formData.append("phone", phone);
-    formData.append("content", content);
+    formData.append('image', image);
+    formData.append('title', title);
+    formData.append('owner', owner);
+    formData.append('price', price);
+    formData.append('address', address);
+    formData.append('phone', phone);
+    formData.append('content', content);
 
     //sending data
-    await Api.post("/api/admin/products", formData, {
+    await Api.post('/api/admin/products', formData, {
       //header
       headers: {
         //header Bearer + Token
         Authorization: `Bearer ${token}`,
-        "content-type": "multipart/form-data",
+        'content-type': 'multipart/form-data',
       },
     })
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/products");
+        navigate('/admin/products');
       })
       .catch((error) => {
         //set error message to state "errors"

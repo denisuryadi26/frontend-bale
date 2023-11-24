@@ -25,10 +25,11 @@ export default function footer() {
             </h5>
             <hr />
             <div className="text-left">
-              <a
+              {/* <a
                 href="https://play.google.com/store/apps/details?id=com.androiddesa"
                 target="_blank"
-              >
+              > */}
+              <a href="https://play.google.com/store/apps" target="_blank">
                 <img
                   src="/images/playstore.png"
                   width={'180'}

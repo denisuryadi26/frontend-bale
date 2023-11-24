@@ -1,33 +1,33 @@
 //import react
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 //import react router dom
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 export default function UsersCreate() {
   //title page
-  document.title = "Create User - Desa Digital";
+  document.title = 'Create User - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
 
   //define state for form
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [rolesData, setRolesData] = useState([]);
   const [errors, setErros] = useState([]);
 
@@ -35,11 +35,11 @@ export default function UsersCreate() {
   const [roles, setRoles] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function "fetchDataRoles"
   const fetchDataRoles = async () => {
-    await Api.get("/api/admin/roles/all", {
+    await Api.get('/api/admin/roles/all', {
       //header
       headers: {
         //header Bearer + Token
@@ -75,7 +75,7 @@ export default function UsersCreate() {
 
     //sending data
     await Api.post(
-      "/api/admin/users",
+      '/api/admin/users',
       {
         //data
         name: name,
@@ -90,17 +90,17 @@ export default function UsersCreate() {
           //header Bearer + Token
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     )
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/users");
+        navigate('/admin/users');
       })
       .catch((error) => {
         //set error message to state "errors"

@@ -1,34 +1,34 @@
 //import react
-import { useState } from "react";
+import { useState } from 'react';
 
 //import react router dom
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
 //import layout
-import LayoutAdmin from "../../../layouts/Admin";
+import LayoutAdmin from '../../../layouts/Admin';
 
 //import api
-import Api from "../../../services/Api";
+import Api from '../../../services/Api';
 
 //import js cookie
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 //import toast
-import toast from "react-hot-toast";
+import toast from 'react-hot-toast';
 
 export default function CategoryCreate() {
   //title page
-  document.title = "Create Category - Desa Digital";
+  document.title = 'Create Category - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
 
   //define state for form
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [errors, setErros] = useState([]);
 
   //token from cookies
-  const token = Cookies.get("token");
+  const token = Cookies.get('token');
 
   //function "storeCategory"
   const storeCategory = async (e) => {
@@ -36,7 +36,7 @@ export default function CategoryCreate() {
 
     //sending data
     await Api.post(
-      "/api/admin/categories",
+      '/api/admin/categories',
       {
         //data
         name: name,
@@ -46,19 +46,19 @@ export default function CategoryCreate() {
         headers: {
           //header Bearer + Token
           Authorization: `Bearer ${token}`,
-          "content-type": "multipart/form-data",
+          'content-type': 'multipart/form-data',
         },
-      }
+      },
     )
       .then((response) => {
         //show toast
         toast.success(response.data.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 4000,
         });
 
         //redirect
-        navigate("/admin/categories");
+        navigate('/admin/categories');
       })
       .catch((error) => {
         //set error message to state "errors"

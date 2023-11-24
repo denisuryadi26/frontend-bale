@@ -24,7 +24,7 @@ import 'react-quill/dist/quill.snow.css';
 
 export default function KerontangsEdit() {
   //title page
-  document.title = 'Edit Post - Desa Digital';
+  document.title = 'Edit Post - Sangkakala';
 
   //navigata
   const navigate = useNavigate();
